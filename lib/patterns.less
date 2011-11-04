@@ -7,9 +7,9 @@
 // -------------------------
 
 // Navbar variables
-@navBarHeight: 40px;
-@navBarBgStart: #333;
-@navBarBgEnd: #222;
+@navBarHeight: 37px;
+@navBarBgStart: @grayDark;
+@navBarBgEnd: @gray;
 
 // Common styles
 .navbar {
@@ -23,6 +23,12 @@
   @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
   .box-shadow(@shadow);
 }
+
+.bluebar {
+  height: 5px;
+  background-color: #2C95CE;
+}
+
 // Text and links
 .navbar {
   // Links get text-shadow
@@ -34,7 +40,7 @@
   .brand a:hover,
   ul .active > a {
     background-color: @navBarBgStart;
-    background-color: rgba(255,255,255,.05);
+    background-color: rgba(255,255,255,.25);
     color: @white;
     text-decoration: none;
   }
@@ -42,17 +48,33 @@
   .brand {
     float: left;
     display: block;
-    padding: 8px 20px 12px;
-    margin-left: -20px; // negative indent to left-align the text down the page
+    padding: 9px 10px 8px;
+    margin-left: 0px; // negative indent to left-align the text down the page
+    margin-right: 15px;
     color: @white;
     font-size: 20px;
     font-weight: 200;
     line-height: 1;
   }
+    /* Tweak navbar brand link to be super sleek
+    -------------------------------------------------- */
+     .brand {
+      padding-right: 0;
+      padding-left: 0;
+      float: left;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 1px 0 rgba(255,255,255,.1);
+    }
+     .brand:hover {
+      text-decoration: none;
+    }
+
+  
   // Plain text in topbar
   p {
     margin: 0;
-    line-height: 40px;
+    line-height: 37px;
     a:hover {
       background-color: transparent;
       color: @white;
@@ -113,7 +135,6 @@
 .navbar-static .navbar-inner {
   padding-left:  20px;
   padding-right: 20px;
-  .border-radius(4px);
 }
 
 // Fixed navbar
@@ -136,6 +157,7 @@
   display: block;
   float: left;
   margin: 0 10px 0 0;
+  padding-top:7px;
   position: relative;
   left: 0;
   > li {
@@ -145,8 +167,10 @@
   a {
     display: block;
     float: none;
-    padding: 10px 10px 11px;
-    line-height: 19px;
+    padding: 7px 10px 7px;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: bold;
     text-decoration: none;
     &:hover {
       color: @white;
@@ -155,7 +179,7 @@
   }
   .active > a {
     background-color: #222;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.75);
   }
 
   // Secondary (floated right) nav in topbar
@@ -186,8 +210,9 @@
     li a {
       color: #999;
       text-shadow: 0 1px 0 rgba(0,0,0,.5);
+      font-weight: bold;
       &:hover {
-        #gradient > .vertical(#292929,#191919);
+        background-color: rgba(255,255,255,.25);
         color: @white;
       }
     }
@@ -247,7 +272,6 @@
   border-color: rgba(0,0,0,.2);
   border-style: solid;
   border-width: 0 1px 1px;
-  .border-radius(0 0 6px 6px);
   .box-shadow(0 2px 4px rgba(0,0,0,.2));
   .background-clip(padding-box);
 
@@ -329,7 +353,6 @@
       margin-right: 2px;
       line-height: @baseLineHeight * 2;
       border: 1px solid transparent;
-      .border-radius(4px 4px 0 0);
       &:hover {
         text-decoration: none;
         background-color: #eee;
@@ -367,7 +390,6 @@
     margin-bottom: 0;
   }
   &.tabs-bottom .tabs > li > a {
-    .border-radius(0 0 4px 4px);
     &:hover {
       border-bottom-color: transparent;
       border-top-color: #ddd;
@@ -410,7 +432,6 @@
         margin-right: -1px;
         > a {
           margin-right: 0;
-          .border-radius(4px 0 0 4px);
 
           &:hover {
             border-right-color: #ddd;
@@ -437,7 +458,6 @@
         margin-left: -1px;
         > a {
           margin-left: 0;
-          .border-radius(0 4px 4px 0);
 
           &:hover {
             border-left-color: #ddd;
@@ -462,7 +482,6 @@
   .dropdown-menu {
     top: 35px;
     border-width: 1px;
-    .border-radius(0 6px 6px 6px);
   }
   // first one for backwards compatibility
   a.menu:after,
@@ -490,7 +509,6 @@
     padding: 0 15px;
     line-height: 30px;
     text-shadow: 0 1px 1px @white;
-    .border-radius(15px);
     &:hover {
       color: @white;
       text-decoration: none;
@@ -530,9 +548,7 @@
 .breadcrumb {
   margin: 0 0 @baseLineHeight;
   padding: 7px 14px;
-  #gradient > .vertical(#ffffff, #f5f5f5);
   border: 1px solid #ddd;
-  .border-radius(3px);
   .box-shadow(inset 0 1px 0 @white);
   li {
     display: inline;
@@ -555,7 +571,6 @@
   background-color: #f5f5f5;
   margin-bottom: 30px;
   padding: 60px;
-  .border-radius(6px);
   h1 {
     margin-bottom: 0;
     font-size: 60px;
@@ -628,12 +643,15 @@ footer {
   &.brown {
     .gradientBar(@brownLight, @brown);
   }
+  
   &.purple {
     .gradientBar(@purpleLight, @purple);
   }
+  
   &.blue {
     .gradientBar(@blueLight, @blue);
   }
+  
 }
 
 // Base .btn styles
@@ -649,12 +667,31 @@ footer {
   line-height: normal;
   border: 1px solid #ccc;
   border-bottom-color: #bbb;
-  .border-radius(4px);
   @shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  
+
+    background-color: #efefef;
+    border: 1px solid #999;
+    border-bottom-color: #888;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 18px;
+    padding: 2px 6px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+    background-position: 0 -98px;
+
+    padding: 3px 7px ;
+  
   .box-shadow(@shadow);
 
   &:hover {
-    background-position: 0 -15px;
+    background-position: 0 -150px;
     color: #333;
     text-decoration: none;
   }
@@ -667,7 +704,7 @@ footer {
   // Primary Button Type
   &.primary {
     color: @white;
-    .gradientBar(@blue, @blueDark)
+    .gradientBar(@grayDark, @gray)
   }
 
    // Transitions
@@ -697,20 +734,19 @@ footer {
 
   // Button Sizes
   &.large {
-    font-size: @baseFontSize + 2px;
-    line-height: normal;
-    padding: 9px 14px 9px;
-    .border-radius(6px);
+    padding: 6px 14px;
+    padding-top:5px;
+    font-size: @baseFontSize + 1px;
+    line-height: @baseFontSize + 10px;
   }
   &.small {
-    padding: 7px 9px 7px;
+    padding-top:5px;
     font-size: @baseFontSize - 2px;
   }
 }
 // Super jank hack for removing border-radius from IE9 so we can keep filter gradients on alerts and buttons
 :root .alert-message,
 :root .btn {
-  border-radius: 0 \0;
 }
 
 // Help Firefox not be a jerk about adding extra padding to buttons
@@ -738,28 +774,13 @@ input[type=submit].btn {
 .btn-group {
   .clearfix();
 }
-// Float them, remove border radius, then re-add to first and last elements
+// Float them then re-add to first and last elements
 .btn-group .btn {
   position: relative;
   float: left;
   margin-left: -1px;
-  .border-radius(0);
   &:first-child {
     margin-left: 0;
-       -webkit-border-top-left-radius: 4px;
-           -moz-border-radius-topleft: 4px;
-               border-top-left-radius: 4px;
-    -webkit-border-bottom-left-radius: 4px;
-        -moz-border-radius-bottomleft: 4px;
-            border-bottom-left-radius: 4px;
-  }
-  &:last-child {
-       -webkit-border-top-right-radius: 4px;
-           -moz-border-radius-topright: 4px;
-               border-top-right-radius: 4px;
-    -webkit-border-bottom-right-radius: 4px;
-        -moz-border-radius-bottomright: 4px;
-            border-bottom-right-radius: 4px;
   }
 }
 // On hover/focus/active, bring the proper btn to front
@@ -802,7 +823,6 @@ input[type=submit].btn {
   text-shadow: 0 1px 0 rgba(255,255,255,.5);
   border-width: 1px;
   border-style: solid;
-  .border-radius(4px);
   .box-shadow(inset 0 1px 0 rgba(255,255,255,.25));
 
   // Adjust close icon
@@ -879,7 +899,6 @@ input[type=submit].btn {
     margin: 0;
     border: 1px solid #ddd;
     border: 1px solid rgba(0,0,0,.15);
-    .border-radius(3px);
     .box-shadow(0 1px 2px rgba(0,0,0,.05));
   }
   li {
@@ -920,7 +939,6 @@ input[type=submit].btn {
   min-height: 20px;
   border: 1px solid #eee;
   border: 1px solid rgba(0,0,0,.05);
-  .border-radius(4px);
   .box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
   blockquote {
     border-color: #ddd;
@@ -959,7 +977,6 @@ input[type=submit].btn {
   border: 1px solid #999;
   border: 1px solid rgba(0,0,0,.3);
   *border: 1px solid #999; /* IE6-7 */
-  .border-radius(6px);
   .box-shadow(0 3px 7px rgba(0,0,0,0.3));
   .background-clip(padding-box);
   .close { margin-top: 7px; }
@@ -980,7 +997,6 @@ input[type=submit].btn {
   background-color: #f5f5f5;
   padding: 14px 15px 15px;
   border-top: 1px solid #ddd;
-  .border-radius(0 0 6px 6px);
   .box-shadow(inset 0 1px 0 @white);
   .clearfix();
   margin-bottom: 0;
@@ -1055,7 +1071,6 @@ input[type=submit].btn {
   text-align: center;
   max-width: 200px;
   text-decoration: none;
-  .border-radius(4px);
 }
 .twipsy-arrow {
   position: absolute;
@@ -1089,20 +1104,17 @@ input[type=submit].btn {
     padding: 3px;
     overflow: hidden;
     width: 280px;
-    .border-radius(6px);
     .box-shadow(0 3px 7px rgba(0,0,0,0.3));
   }
   .title {
     background-color: #f5f5f5;
     padding: 9px 15px;
     line-height: 1;
-    .border-radius(3px 3px 0 0);
     border-bottom:1px solid #eee;
   }
   .content {
     background-color: @white;
     padding: 14px;
-    .border-radius(0 0 3px 3px);
     .background-clip(padding-box);
     p, ul, ol {
       margin-bottom: 0;
@@ -1133,7 +1145,6 @@ input[type=submit].btn {
   font-weight: bold;
   color: @white;
   text-transform: uppercase;
-  .border-radius(3px);
   &.important { background-color: #c43c35; }
   &.warning   { background-color: @orange; }
   &.success   { background-color: @green; }
@@ -1156,7 +1167,6 @@ input[type=submit].btn {
     padding: 4px;
     margin: 0 0 20px 20px;
     border: 1px solid #ddd;
-    .border-radius(4px);
     .box-shadow(0 1px 1px rgba(0,0,0,.075));
     img {
       display: block;

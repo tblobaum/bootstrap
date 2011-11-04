@@ -33,9 +33,6 @@
         background-color: #fff;
         padding: 20px;
         margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-        -webkit-border-radius: 0 0 6px 6px;
-           -moz-border-radius: 0 0 6px 6px;
-                border-radius: 0 0 6px 6px;
         -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
                 box-shadow: 0 1px 2px rgba(0,0,0,.15);
@@ -56,12 +53,8 @@
       /* Give a quick and non-cross-browser friendly divider */
       .content .span4 {
         margin-left: 0;
-        padding-left: 19px;
+        padding-left: 9px;
         border-left: 1px solid #eee;
-      }
-
-      .topbar .btn {
-        border: 0;
       }
 
     </style>
@@ -75,7 +68,7 @@
 
   <body>
 
-    <div class="navbar">
+    <div class="navbar navbar-fixed" data-scrollspy="scrollspy"> 
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="#">Project name</a>
